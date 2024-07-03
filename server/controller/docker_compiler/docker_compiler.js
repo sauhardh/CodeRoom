@@ -1,10 +1,9 @@
 import fs from "fs";
-import { Python_docker } from "./python/python_docker.js"
-import { JavaScript_docker } from "./javascript/javascript_docker.js";
-import { Cpp_docker } from "./cpp/cpp_docker.js";
 import dotenv from "dotenv";
 import path from "path";
+import { langSpecific_docker } from "./langSpecific_docker.js";
 dotenv.config();
+import { give_me_path } from "./path.js";
 
 
 
@@ -12,42 +11,42 @@ const docker_compiler = async (InputText = "", extension) => {
 
     try {
 
-        console.log("Run", InputText, extension)
 
         let PATH;
+        let data;
+        let img_tag
+
 
         if (extension == ".py") {
-            PATH = path.join(process.env.PYTHON_PATH);
+            PATH = give_me_path("python")
+            img_tag = process.env.PYTHON_TAG
+
         }
         else
             if (extension == ".js") {
                 console.log("path run")
-                PATH = path.join(process.env.JS_PATH);
+                PATH = give_me_path("javascript")
+                img_tag = process.env.JS_TAG
+
+
+
             }
             else
                 if (extension == ".cpp") {
-                    PATH = path.join(process.env.CPP_PATH);
+                    PATH = give_me_path("cpp")
+                    img_tag = process.env.CPP_TAG
+
+
+
                 }
 
 
-        console.log("Selected path", PATH)
-
         const file = fs.writeFileSync(`${PATH}/myapp${extension}`, InputText)
-        console.log("File after created", file);
 
-        let data;
-        if (extension == ".py") {
-            data = (await Python_docker()).toString();
-        }
-        if (extension == ".js") {
-            console.log("docker run")
-            data = (await JavaScript_docker()).toString();
-        }
-        if (extension == ".cpp") {
-            data = (await Cpp_docker()).toString();
-        }
 
-        console.log("docker_compiler", data);
+
+        data = (await langSpecific_docker(PATH, img_tag)).toString();
+        console.log('Data given by docker', data)
 
 
 
@@ -55,7 +54,7 @@ const docker_compiler = async (InputText = "", extension) => {
         // delete file
         fs.unlinkSync(`${PATH}/myapp${extension}`, (err) => {
             if (err) {
-                console.log("error on deleting file in python.js ", err)
+                console.log("error on deleting file from docker_compiler ", err)
             }
         });
 
