@@ -95,13 +95,13 @@ CPP_TAG = 'sha256:2321d3c...'
 
 **How to Setup Docker** <br>
 `
--Build an docker image, docker build <path where dockerfile is present>
--Copy the image tag of particular image
--Paste it in the .env file located inside server directory
+-Build an docker image, ```docker build <path where dockerfile is present>```<br>
+-Copy the image tag of particular image<br>
+-Paste it in the .env file located inside server directory<br>
 `
 
 
-### Developers
+### Developers  
 
 [Ostrich-egg](https://github.com/ostrich-egg)<br>
 [Adarsha](https://github.com/Adarsha16)<br>
