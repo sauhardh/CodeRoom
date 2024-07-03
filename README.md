@@ -94,11 +94,11 @@ CPP_TAG = 'sha256:2321d3c...'
 ```
 
 **How to Setup Docker** <br>
-```sh
+`sh
 -Build an docker image, `docker build <path where dockerfile is present>`
 -Copy the image tag of particular image
 -Paste it in the .env file located inside server directory
-```
+`
 
 
 ### Developers
