@@ -53,9 +53,10 @@ http://localhost:5173/
 - Password Encryption using **bcrypt** hashing
 - Authentication using **JWT**, with ft. like OTP using NodeMailer.
 - **Monaco Editor** for code IntelliSense and edit
-- **Glot API** for Code Compilation
+- Language specific compiler for code compilation using **docker**
+- Currently using compiler : Javascript - Nodejs(runtime), Python - python3, C++ - gcc
 - Socket.io for **websocket** (Real time communication)
-- Some Common sense
+- Terniary Operator
 
 ### Before you Start
 
