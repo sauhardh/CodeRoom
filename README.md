@@ -53,9 +53,10 @@ http://localhost:5173/
 - Password Encryption using **bcrypt** hashing
 - Authentication using **JWT**, with ft. like OTP using NodeMailer.
 - **Monaco Editor** for code IntelliSense and edit
-- **Glot API** for Code Compilation
+- Language specific compiler for code compilation using **docker**
+- (Language - Compiler) = Javascript - **Nodejs(runtime)**, Python - **python3**, C++ - **gcc**
 - Socket.io for **websocket** (Real time communication)
-- Some Common sense
+- Terniary Operator
 
 ### Before you Start
 
@@ -84,21 +85,23 @@ JWT_LIFETIME = '1hr'
 
 
 #For docker setup
-COMPILER_PATH = ./controller/docker_compiler
-PYTHON_PATH = ./controller/docker_compiler/python
-CPP_PATH = ./controller/docker_compiler/cpp
-JS_PATH = ./controller/docker_compiler/javascript
+PYTHON_TAG = 'sha256:cf2c...'
+JS_TAG = 'sha256:cfa2266c...'
+CPP_TAG = 'sha256:2321d3c...'
+
+
 
 ```
 
 **How to Setup Docker** <br>
-`Go to COMPILER_PATH as mentioned in .env`<br>
-`Go to each folder, and build image mannualy`<br>
-`After creating image, copy and replace image tag inside the *_docker.js file`<br>
-`To create image`, ``` docker build . ```<br>
+```
+-Build an docker image, "docker build <path where dockerfile is present>"
+-Copy the image tag of particular image
+-Paste it in the .env file located inside server directory
+```
 
 
-### Developers
+### Developers  
 
 [Ostrich-egg](https://github.com/ostrich-egg)<br>
 [Adarsha](https://github.com/Adarsha16)<br>

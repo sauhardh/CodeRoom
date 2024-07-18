@@ -14,7 +14,7 @@ FROM node:latest
 # ENV NODE_ENV production
 
 
-WORKDIR /usr/source/app
+WORKDIR /app
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.npm to speed up subsequent builds.

@@ -7,28 +7,32 @@ npm start
 ```
 
 **.env setup**<br>
-```sh
+```
+#For MYSQL Database
 DB_HOST = localhost
 DB_USER = root
-DB_PASS = <password>
-DB_NAME = <database_name>
-DB_TABLE_NAME = <table_name>
+DB_PASS = <your password>
+DB_NAME = users
+DB_TABLE_NAME = userstable
 
-
+#For OTP Database
 DB_OTP_TABLE_NAME = otpverification
-OTP_EMAIL_SENDER = <Email for sending otp>
-OTP_APP_PASSWORD = <Application Pass, DO NOT SHARE>
-OTP_EXPIRY = 5 #mins
+OTP_EMAIL_SENDER = <me@gmail.com>
+
+#For OTP Nodemailer
+OTP_APP_PASSWORD = <Application password>
+OTP_EXPIRY = 5* #In mins
+
+#For json web token
+JWT_SECRET = <IHaveNoSecrets>
+JWT_LIFETIME = '1hr'
 
 
+#For docker setup
+PYTHON_TAG = 'sha256:cf2c...'
+JS_TAG = 'sha256:cfa2266c...'
+CPP_TAG = 'sha256:2321d3c...'
 
-JWT_SECRET = <jwt_secret_key>
-JWT_LIFETIME = <jwt_lifetime>
-
-COMPILER_PATH = ./controller/docker_compiler
-PYTHON_PATH = ./controller/docker_compiler/python
-JS_PATH = ./controller/docker_compiler/javascript
-CPP_PATH = ./controller/docker_compiler/cpp
 
 
 ```
