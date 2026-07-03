@@ -2,7 +2,7 @@ import fs from "fs";
 import dotenv from "dotenv";
 import path from "path";
 import { langSpecific_docker } from "./langSpecific_docker.js";
-dotenv.config();
+dotenv.config({ path: '../.env' });
 import { give_me_path } from "./path.js";
 
 

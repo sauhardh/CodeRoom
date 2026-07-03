@@ -1,7 +1,7 @@
 
 import { spawn } from 'node:child_process';
 import dotenv from "dotenv";
-dotenv.config();
+dotenv.config({ path: '../.env' });
 
 
 const langSpecific_docker = async (PATH, img_tag) => {
@@ -10,7 +10,7 @@ const langSpecific_docker = async (PATH, img_tag) => {
 
         return new Promise((resolve, reject) => {
 
-            const child = spawn("docker", ["run", "-v", `${PATH}:/app`, `${img_tag}`]);
+            const child = spawn("docker", ["run", "--rm", "-v", `${PATH}:/app`, `${img_tag}`]);
 
 
             let output = '';
